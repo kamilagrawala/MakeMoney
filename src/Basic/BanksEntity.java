@@ -8,11 +8,11 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="BANKS")
+@Table(name="Banks")
 public class BanksEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID")
+	@Column(name="Id")
 	Long Id;
 	@Column(name="Name")
 	String Name;

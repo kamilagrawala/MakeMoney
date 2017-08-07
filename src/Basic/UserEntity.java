@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class UserEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID")
+	@Column(name="Id")
 	Long Id;
 	@Column(name="Name")
 	String Name;

@@ -13,6 +13,7 @@ import com.sun.media.jfxmedia.logging.Logger;
 
 import Basic.BanksEntity;
 import Basic.UserEntity;
+import External.Pricing;
 
 public class Main {
 
@@ -22,18 +23,28 @@ public class Main {
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
         // read the existing entries and write to console
-        Query q = em.createQuery("select bank from BanksEntity bank");
+        Query q = em.createQuery("select user from UserEntity user");
         @SuppressWarnings("unchecked")
-		List<BanksEntity> banks = q.getResultList();
+		List<UserEntity> users = q.getResultList();
         System.out.println();
         System.out.println();
         System.out.println();
-        for (BanksEntity bank : banks) {
+        /*UserEntity user2 = new UserEntity();
+        user2.setAccess("ADMIN");
+        user2.setName("kagrawala");
+        em.getTransaction().begin();
+        em.persist(user2);
+        em.getTransaction().commit();*/
+        for (UserEntity user : users) {
         	System.out.println();
-            System.out.printf("Id: %d, Name: %s, Swiftcode: %s\n", bank.getId(), bank.getName(), bank.getSwiftCode());
+            System.out.printf("Id: %d, Name: %s, Swiftcode: %s\n", user.getId(), user.getName(), user.getAccess());
+        	//System.out.printf("Id: %d\n",user.getId()); 
         }
-        System.out.println("Size: " + banks.size());
-
+        System.out.println("Size: " + users.size());
         em.close();
+        
+        Pricing prices = new Pricing();
+        System.out.println("Fetching Currency");
+        prices.conneect();
     }
 }
