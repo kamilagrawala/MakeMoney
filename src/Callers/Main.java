@@ -8,13 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
-import com.sun.media.jfxmedia.logging.Logger;
-
 import Basic.BanksEntity;
 import Basic.UserEntity;
 import External.Pricing;
 
+@SuppressWarnings("unused")
 public class Main {
 
 	private static EntityManagerFactory factory;
@@ -45,6 +43,6 @@ public class Main {
         
         Pricing prices = new Pricing();
         System.out.println("Fetching Currency");
-        prices.conneect();
+        prices.connect1Forge();
     }
 }

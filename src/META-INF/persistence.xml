@@ -3,8 +3,9 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="MakeMoney.Basic" transaction-type="RESOURCE_LOCAL">
-        <class>Basic.UserEntity</class>
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>Basic.BanksEntity</class>
+        <class>Basic.UserEntity</class>
  <properties>
   <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
   <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.56.101:5432/localdev_db" />
@@ -14,7 +15,7 @@
   <!-- EclipseLink should create the database schema automatically -->
   <property name="eclipselink.ddl-generation" value="create-tables" />
   <property name="eclipselink.ddl-generation.output-mode" value="database" />
-  <property name="eclipselink.logging.level" value="OFF"/>
+  <property name="eclipselink.logging.level" value="ALL"/>
  </properties>
 
     </persistence-unit>
